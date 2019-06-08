@@ -14,6 +14,11 @@ public class ToDoService extends BaseService<ToDoAPI> {
         return "https://jsonplaceholder.typicode.com/";
     }
 
+    @Override
+    protected int getTimeout() {
+        return 5;
+    }
+
     public void getToDos(DefaultCallback.OnSuccess<List<ToDoDTO>> onSuccess, DefaultCallback.OnError onError) {
         Call<List<ToDoDTO>> caller = getService().getToDos();
         caller.enqueue(new DefaultCallback<>(onSuccess, onError));
