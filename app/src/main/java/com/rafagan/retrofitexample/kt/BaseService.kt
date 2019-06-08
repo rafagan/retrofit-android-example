@@ -6,11 +6,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 abstract class BaseService<T>(private val tClass: Class<T>) {
     private var service: T? = null
-    abstract val baseUrl: String
+    protected abstract val baseUrl: String
 
-    fun getService(): T? {
-        if (service == null)
+    internal fun getService(): T? {
+        if (service == null) {
             service = buildService()
+        }
         return service
     }
 
