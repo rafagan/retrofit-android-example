@@ -1,9 +1,9 @@
-package com.rafagan.retrofitexample
+package com.rafagan.retrofitexample.kt
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.rafagan.retrofitexample.kt.ToDoService
+import com.rafagan.retrofitexample.R
 
 class MainActivity : AppCompatActivity() {
     lateinit var service: ToDoService
