@@ -2,11 +2,12 @@ package com.rafagan.retrofitexample.kt
 
 import okhttp3.ResponseBody
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
 open class DefaultCallback<T>(
     val onSuccess: (T?) -> Unit,
-    val onError: (ResponseBody?) -> Unit) : retrofit2.Callback<T>
+    val onError: (ResponseBody?) -> Unit) : Callback<T>
 {
     override fun onFailure(call: Call<T>, t: Throwable) {
         t.printStackTrace()

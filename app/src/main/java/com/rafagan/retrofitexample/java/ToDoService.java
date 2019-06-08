@@ -5,14 +5,6 @@ import okhttp3.ResponseBody;
 import java.util.List;
 
 public class ToDoService extends BaseService<ToDoAPI> {
-    public interface OnSuccess {
-        void run(List<ToDoDTO> toDos);
-    }
-
-    public interface OnError {
-        void run(ResponseBody errorBody);
-    }
-
     public ToDoService(Class<ToDoAPI> toDoAPIClass) {
         super(toDoAPIClass);
     }
@@ -22,7 +14,7 @@ public class ToDoService extends BaseService<ToDoAPI> {
         return "https://jsonplaceholder.typicode.com/";
     }
 
-    public void getToDos(OnSuccess onSuccess, OnError onError) {
+    public void getToDos(DefaultCallback.OnSuccess<List<ToDoDTO>> onSuccess, DefaultCallback.OnError onError) {
 
     }
 }
