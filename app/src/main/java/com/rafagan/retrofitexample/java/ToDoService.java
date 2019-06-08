@@ -1,12 +1,12 @@
 package com.rafagan.retrofitexample.java;
 
-import okhttp3.ResponseBody;
+import retrofit2.Call;
 
 import java.util.List;
 
 public class ToDoService extends BaseService<ToDoAPI> {
-    public ToDoService(Class<ToDoAPI> toDoAPIClass) {
-        super(toDoAPIClass);
+    public ToDoService() {
+        super(ToDoAPI.class);
     }
 
     @Override
@@ -15,6 +15,7 @@ public class ToDoService extends BaseService<ToDoAPI> {
     }
 
     public void getToDos(DefaultCallback.OnSuccess<List<ToDoDTO>> onSuccess, DefaultCallback.OnError onError) {
-
+        Call<List<ToDoDTO>> caller = getService().getToDos();
+        caller.enqueue(new DefaultCallback<>(onSuccess, onError));
     }
 }

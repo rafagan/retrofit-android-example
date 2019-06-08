@@ -6,8 +6,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import java.util.List;
-
 public class DefaultCallback<T> implements Callback<T> {
     public interface OnSuccess<T> {
         void run(T data);
